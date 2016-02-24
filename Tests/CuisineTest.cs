@@ -81,14 +81,31 @@ namespace BestRestaurants
     }
 
     [Fact]
+    public void Test_GetCuisines_RetrievesAllCuisines()
+    {
+      Cuisine firstCuisine = new Cuisine("Indian");
+      firstCuisine.Save();
+      Cuisine secondCuisine = new Cuisine("Italian");
+      secondCuisine.Save();
+
+      List<Cuisine> testCuisineList = new List<Cuisine> {firstCuisine, secondCuisine};
+      List<Cuisine> resultCuisineList = Cuisine.GetAll();
+
+      Assert.Equal(testCuisineList, resultCuisineList);
+
+
+
+    }
+
+    [Fact]
     public void Test_GetRestaurants_RetrievesAllRestaurantsWithCuisine()
     {
       Cuisine testCuisine = new Cuisine("Indian");
       testCuisine.Save();
 
-      Restaurant firstRestaurant = new Restaurant("India House", testCuisine.GetId());
+      Restaurant firstRestaurant = new Restaurant("India House", testCuisine.GetId(), "123 example st", "555-555-5555");
       firstRestaurant.Save();
-      Restaurant secondRestaurant = new Restaurant("Taste of India", testCuisine.GetId());
+      Restaurant secondRestaurant = new Restaurant("Taste of India", testCuisine.GetId(), "123 example st", "555-555-5555");
       secondRestaurant.Save();
 
       List<Restaurant> testRestaurantList = new List<Restaurant> {firstRestaurant, secondRestaurant};
@@ -126,9 +143,9 @@ namespace BestRestaurants
       Cuisine testCuisine2 = new Cuisine(name2);
       testCuisine2.Save();
 
-      Restaurant testRestaurant1 = new Restaurant("Taste of India", testCuisine1.GetId());
+      Restaurant testRestaurant1 = new Restaurant("Taste of India", testCuisine1.GetId(), "123 example st", "555-555-5555");
       testRestaurant1.Save();
-      Restaurant testRestaurant2 = new Restaurant("Olive Garden", testCuisine2.GetId());
+      Restaurant testRestaurant2 = new Restaurant("Olive Garden", testCuisine2.GetId(), "123 example st", "555-555-5555");
       testRestaurant2.Save();
 
       //Act

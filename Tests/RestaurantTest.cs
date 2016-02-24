@@ -28,8 +28,8 @@ namespace BestRestaurants
     public void Test_Equal_ReturnsTrueIfDescriptionsAreTheSame()
     {
 
-      Restaurant firstRestaurant = new Restaurant("Wolf & Bears", 1);
-      Restaurant secondRestaurant = new Restaurant("Wolf & Bears", 1);
+      Restaurant firstRestaurant = new Restaurant("Wolf & Bears", 1, "123 example st", "555-555-5555");
+      Restaurant secondRestaurant = new Restaurant("Wolf & Bears", 1, "123 example st", "555-555-5555");
 
       Assert.Equal(firstRestaurant, secondRestaurant);
     }
@@ -37,7 +37,7 @@ namespace BestRestaurants
     [Fact]
     public void Test_Save_SavesToDatabase()
     {
-      Restaurant testRestaurant = new Restaurant("Wolf & Bears", 1);
+      Restaurant testRestaurant = new Restaurant("Wolf & Bears", 1, "123 example st", "555-555-5555");
 
       testRestaurant.Save();
       List<Restaurant> result = Restaurant.GetAll();
@@ -49,7 +49,7 @@ namespace BestRestaurants
     [Fact]
     public void Test_Save_AssignsIdToObject()
     {
-      Restaurant testRestaurant = new Restaurant("Wolf & Bears", 1);
+      Restaurant testRestaurant = new Restaurant("Wolf & Bears", 1, "123 example st", "555-555-5555");
 
       testRestaurant.Save();
       Restaurant savedRestaurant = Restaurant.GetAll()[0];
@@ -65,7 +65,7 @@ namespace BestRestaurants
     {
       //Arrange
       string name = "Fart Berry";
-      Restaurant testRestaurant = new Restaurant(name, 1);
+      Restaurant testRestaurant = new Restaurant(name, 1, "123 example st", "555-555-5555");
       testRestaurant.Save();
       string newName = "Tart Berry";
 
@@ -82,9 +82,9 @@ namespace BestRestaurants
     public void Test_Delete_DeletesRestaurantFromDatabase()
     {
       //Arrange
-      Restaurant testRestaurant1 = new Restaurant("Taste of India", 1);
+      Restaurant testRestaurant1 = new Restaurant("Taste of India", 1, "123 example st", "555-555-5555");
       testRestaurant1.Save();
-      Restaurant testRestaurant2 = new Restaurant("Olive Garden", 2);
+      Restaurant testRestaurant2 = new Restaurant("Olive Garden", 2, "123 example st", "555-555-5555");
       testRestaurant2.Save();
 
       //Act
@@ -100,7 +100,7 @@ namespace BestRestaurants
     [Fact]
     public void Test_Find_FindsRestaurantInDatabase()
     {
-      Restaurant testRestaurant = new Restaurant("Wolf & Bears", 1);
+      Restaurant testRestaurant = new Restaurant("Wolf & Bears", 1, "123 example st", "555-555-5555");
       testRestaurant.Save();
 
       Restaurant foundRestaurant = Restaurant.Find(testRestaurant.GetId());

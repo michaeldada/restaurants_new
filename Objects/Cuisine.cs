@@ -92,7 +92,10 @@ namespace BestRestaurants
             int restaurantId = rdr.GetInt32(0);
             string restaurantDescription = rdr.GetString(1);
             int restaurantCuisineId = rdr.GetInt32(2);
-            Restaurant newRestaurant = new Restaurant(restaurantDescription, restaurantCuisineId, restaurantId);
+            string restaurantAddress = rdr.GetString(3);
+            string restaurantPhone = rdr.GetString(4);
+
+            Restaurant newRestaurant = new Restaurant(restaurantDescription, restaurantCuisineId, restaurantAddress, restaurantPhone, restaurantId);
             restaurants.Add(newRestaurant);
           }
           if (rdr != null)

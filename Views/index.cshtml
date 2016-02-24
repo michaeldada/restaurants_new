@@ -1,0 +1,51 @@
+<h1>Best Restaurants in Portland</h1>
+
+<ul>
+@{
+  if (Model != null)
+  {
+    @foreach (var cuisine in Model)
+   {
+    <li>
+    @cuisine.GetDescription()
+      <ul>
+      @foreach (var restaurant in @cuisine.GetRestaurants())
+      {
+        <li>
+          @restaurant.GetDescription()
+        </li>
+      }
+      </ul>
+    </li>
+
+  }
+ }
+}
+</ul>
+
+<h2>Add a new Cuisine Category</h2>
+<form method="post" action="/addCuisine">
+  Cuisine name:
+  <input type="text" name="cuisine-name">
+  <button type="submit">Add</button>
+</form>
+
+<h2>Add a new Restaurant</h2>
+<form method="post" action="/addRestaurant">
+  Restaurant name:
+  <input type="text" name="restaurant-name">
+
+
+  Restaurant Cusine:
+  <select name="restaurant-cuisine">
+    @foreach (var cuisine in Model) {
+    <option value="@cuisine.GetId()">@cuisine.GetDescription()</option>
+    }
+  </select>
+
+  Restaurant Address:
+  <input type="text" name="restaurant-address">
+  Restaurant Phone Number:
+  <input type="text" name="restaurant-phone">
+  <button type="submit">Add</button>
+</form>
