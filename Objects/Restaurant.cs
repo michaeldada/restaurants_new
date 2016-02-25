@@ -204,6 +204,7 @@ namespace BestRestaurants
         conn.Close();
       }
     }
+
     public static Restaurant Find(int id)
     {
       SqlConnection conn = DB.Connection();
@@ -243,6 +244,50 @@ namespace BestRestaurants
 
       return foundRestaurant;
     }
+
+    public static Restaurant FindName(string Description )
+    {
+      SqlConnection conn = DB.Connection();
+      SqlDataReader rdr = null;
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("SELECT * FROM restaurant WHERE description = @RestaurantDescription;", conn);
+      SqlParameter descriptionParameter = new SqlParameter();
+      descriptionParameter.ParameterName = "@RestaurantDescription";
+      descriptionParameter.Value = Description;
+      cmd.Parameters.Add(descriptionParameter);
+      rdr = cmd.ExecuteReader();
+
+      int foundRestaurantId = 0;
+      string foundRestaurantDescription = null;
+      int foundRestaurantCuisineId = 0;
+      string foundRestaurantAddress = null;
+      string foundRestaurantPhone = null;
+      while(rdr.Read())
+      {
+        foundRestaurantId = rdr.GetInt32(0);
+        foundRestaurantDescription = rdr.GetString(1);
+        foundRestaurantCuisineId = rdr.GetInt32(2);
+        foundRestaurantAddress = rdr.GetString(3);
+        foundRestaurantPhone = rdr.GetString(4);
+      }
+      Restaurant foundRestaurant = new Restaurant(foundRestaurantDescription, foundRestaurantCuisineId, foundRestaurantAddress, foundRestaurantPhone, foundRestaurantId);
+
+      if (rdr != null)
+      {
+        rdr.Close();
+      }
+      if (conn != null)
+      {
+        conn.Close();
+      }
+
+      return foundRestaurant;
+    }
+
+
+
+
     public static void DeleteAll()
     {
       SqlConnection conn = DB.Connection();

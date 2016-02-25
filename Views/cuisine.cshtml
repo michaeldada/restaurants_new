@@ -1,0 +1,16 @@
+<h1>@Model.GetDescription()</h1>
+<ul>
+@{
+  if(Model!= null)
+  {
+    foreach (var restaurant in @Model.GetRestaurants())
+    {
+     <li>
+      <a href="/restaurant/@restaurant.GetId()/">@restaurant.GetDescription()</a>
+     </li>
+    }
+  }
+}
+</ul>
+
+<a href="/">Back</a>

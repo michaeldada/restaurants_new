@@ -1,0 +1,12 @@
+<h1>@Model.GetDescription()</h1>
+<h3>@Model.GetPhone()</h3>
+<h3>@Model.GetAddress()</h3>
+
+<a href="/restaurant/@Model.GetId()/edit">Edit this restaurant</a>
+<br>
+<form action="/restaurant/@Model.GetId()/delete" method="post">
+<input type="hidden" name="_method" value="DELETE">
+<button type="submit">Delete this restaurant</button>
+</form>
+<br><br>
+<a href="/">Back</a>

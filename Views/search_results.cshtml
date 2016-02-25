@@ -1,0 +1,8 @@
+Your Search Results:
+
+
+  @if(@Model.GetId() != 0) {
+    <a href="/restaurant/@Model.GetId()">@Model.GetDescription()</a>
+  } else {
+    <p>No Results Found! Please add your restaurant.</p>
+  }

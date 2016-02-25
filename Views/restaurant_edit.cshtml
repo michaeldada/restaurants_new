@@ -1,0 +1,9 @@
+<h2>Edit restaurant: @Model.GetDescription()</h2>
+<form action="/restaurant/@Model.GetId()/edit" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input name="restaurant-id" type="hidden" value="@Model.GetId()">
+  <label for="restaurant-name">Restaurant name</label>
+  <input id="restaurant-name" name="restaurant-name" type="text">
+  <button type="submit">Submit</button>
+</form>
+<h4><a href="/restaurant/@Model.GetId()/">Back</a></h4>

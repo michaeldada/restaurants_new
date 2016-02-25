@@ -1,0 +1,5 @@
+add Review class
+
+fix search to allow partial matches and multiple results
+
+decide where add new restaurant form goes, style with bootstrap
