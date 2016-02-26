@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>Besteraunts</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='~Content/css/styles.css'>
+  </head>
+<div class="container">
+
+
+  <div class="jumbotron text-center">
+    <h1><a href="/"> Besteraunts</a></h1>
+    <p>The Best Restaurants in Portland</p>
+    <form class="container" action="/search_results" method="post">
+
+           <div class="col-md-6 col-md-offset-3">
+            <div class="input-group input-group-lg">
+              <input type="text" class="form-control" placeholder="Search for Restaurants" name="search">
+              <span class="input-group-addon">Search</span>
+            </div>
+          </div>
+
+    </form>
+  </div>
+<div class="container">
+
+
+<h3>Add a new Restaurant</h3>
+<form class="form-horizontal" method="post" action="/addRestaurant">
+  <div class="form-group">
+
+<label class="col-sm-2 control-label">Restaurant name:</label>
+<div class="col-sm-12">
+  <input class="form-control"type="text" name="restaurant-name">
+</div>
+
+<label class="col-sm-2 control-label">  Restaurant Cusine:</label>
+<div class="col-sm-12">
+  <select name="restaurant-cuisine">
+    @foreach (var category in Model) {
+    <option value="@category.GetId()">@category.GetDescription()</option>
+    }
+  </select>
+</div>
+
+<label class="col-sm-2 control-label">
+  Restaurant Address:</label>
+<div class="col-sm-12">
+    <input type="text" name="restaurant-address">
+</div>
+<label class="col-sm-2 control-label">Restaurant Phone Number:</label>
+<div class="col-sm-12">
+<input type="text" name="restaurant-phone">
+</div>
+<div class="col-sm-12">
+  <button class="btn btn-default" type="submit">Add</button>
+</div>
+
+</form>
+
+
+<form class="form-horizontal" method="post" action="/addCuisine">
+  <div class="col-sm-12">
+  <h3>Don't see the cuisine for your restaurant listed?  Add it here!</h3>
+    </div>
+  <label class="col-sm-2 control-label">Cuisine name:</label>
+  <div class="col-sm-12">
+  <input type="text" name="cuisine-name">
+  </div>
+  <div class="col-sm-12">
+  <button type="submit">Add</button>
+  </div>
+</form>
+<div class="col-sm-12">
+<a href="/">Back Home</a>
+</div>
+</div>
+</div>
+</div>

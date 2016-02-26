@@ -1,0 +1,53 @@
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+<link rel='stylesheet' href="~/Content/css/styles.css">
+
+<div class="container text-align">
+  <div class="jumbotron text-center">
+
+
+  <h1>@Model.GetDescription()</h1>
+  <h3>@Model.GetPhone()</h3>
+  <h3>@Model.GetAddress()</h3>
+  </div>
+
+
+  <br><br><br>
+<div class="text-center">
+
+
+  <h3>Reviews</h3>
+
+  @{
+    if (Model.GetReviews().Count != 0)
+    {
+      foreach (var review in Model.GetReviews())
+      {
+        <div class="review">
+        <p>User: @review.GetUsername()</p>
+        <p>@review.GetDescription()
+          <br>
+        <a href="/restaurant/@review.GetId()/delete_review">Delete This Review</a>
+        </p>
+        </div>
+      }
+    }
+    else
+    {
+      <p>
+        Be the first to leave a review!
+      </p>
+    }
+  }
+    <a href="/restaurant/@Model.GetId()/add_review">Add a Review</a>
+</div>
+
+  <br><br>
+  <div class="text-center">
+  <form action="/restaurant/@Model.GetId()/delete" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <button class="btn btn-default"><a href="/restaurant/@Model.GetId()/edit"> Edit this restaurant</a></button>
+  <button class="btn btn-default" type="submit">Delete this restaurant</button>
+  </form>
+  <a href="/">Back</a>
+</div>
+</div>

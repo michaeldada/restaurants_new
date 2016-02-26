@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Besteraunts</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='Content/css/styles.css'>
+  </head>
+  <body>
+
+
+<div class="container">
+  <div class="jumbotron text-center">
+    <h1>@Model.GetDescription()</h1>
+    <p>The Best @Model.GetDescription() Restaurants in Portland</p>
+  </div>
+
+    @{
+      if(Model!= null)
+      {
+        foreach (var restaurant in @Model.GetRestaurants())
+        {
+
+
+          <div class="list-group text-center">
+            <a href="/restaurant/@restaurant.GetId()/" class="list-group-item active">
+              <h2 class="list-group-item-heading">@restaurant.GetDescription()</h2>
+              <p class="list-group-item-text">@restaurant.GetPhone()</p>
+              <p class="list-group-item-text">@restaurant.GetAddress()</p>
+
+            </a>
+          </div>
+        }
+      }
+    }
+
+<div class="text-center">
+
+
+    <a class="btn btn-danger" href="/cuisine_remove/@Model.GetId()">Delete this cuisine</a>
+    <a class="btn btn-default" href="/">Back</a>
+
+</div>
+
+</div>

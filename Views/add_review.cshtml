@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Besteraunts</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='~Content/css/styles.css'>
+  </head>
+  <div class="text-center">
+
+
+<h3>Leave your review for @Model.GetDescription()</h3>
+<form method="post" action ="/restaurant/@Model.GetId()/add_review">
+Username:
+<br>
+<input type="text" name="username">
+<br><br>
+Write Your Review:
+<br>
+<textarea name="review" rows="8" cols="40"></textarea><br><br>
+<button class="btn btn-default" type="submit">Add Review</button>
+<button class="btn btn-default"><a href="/restaurant/@Model.GetId()/">Go Back</a></button>
+  </div>

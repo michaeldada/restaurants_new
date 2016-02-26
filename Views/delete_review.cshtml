@@ -1,0 +1,10 @@
+Are you sure you want to delete the following review?
+
+<p>User: @Model.GetUsername()</p>
+<p>@Model.GetDescription()</p>
+
+<form action="/restaurant/@Model.GetId()/delete_review" method="post">
+<input type="hidden" name="_method" value="DELETE">
+<button class="btn btn-default" type="submit" name="yes">Yes</button>
+<a class ="btn btn-default" href="/restaurant/@Model.GetRestaurantId()/">No</a>
+</form>

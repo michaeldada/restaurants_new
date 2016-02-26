@@ -1,0 +1,6 @@
+<form class="container" action="/cuisine_removed/@Model.GetId()" method="post">
+<h3>Are you sure you want to permanently remove the @Model.GetDescription() cuisine and all of its restaurants from the database?</h3>
+<input type="hidden" name="_method" value="DELETE">
+<button class="btn btn-default" type="submit" name="yes">Yes</button>
+<a class ="btn btn-default" href="/">No</a>
+</form>
