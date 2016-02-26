@@ -60,6 +60,7 @@ namespace BestRestaurants
       return View["index.cshtml", AllCuisines ];
     };
 
+<<<<<<< HEAD
     Get["/restaurant_add"] = _ => {
       List<Cuisine> AllCuisines = Cuisine.GetAll();
       return View["restaurant_add.cshtml", AllCuisines];
@@ -77,11 +78,14 @@ namespace BestRestaurants
       return View["index.cshtml", AllCuisines];
     };
 
+=======
+>>>>>>> 142e26394e21f1dfbc3d013019672ec7810fe0a0
     Post["/search_results"] = _ => {
     Restaurant foundRestaurant = Restaurant.FindName(Request.Form["search"]);
     return View["search_results.cshtml", foundRestaurant];
   };
 
+<<<<<<< HEAD
     Get["/restaurant/{id}/add_review"] = parameters => {
     Restaurant SelectedRestaurant = Restaurant.Find(parameters.id);
     return View["add_review.cshtml", SelectedRestaurant];
@@ -108,6 +112,8 @@ namespace BestRestaurants
 
 
 
+=======
+>>>>>>> 142e26394e21f1dfbc3d013019672ec7810fe0a0
 
     }
   }

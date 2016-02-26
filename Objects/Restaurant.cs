@@ -161,6 +161,7 @@ namespace BestRestaurants
       return allRestaurants;
     }
 
+<<<<<<< HEAD
     public List<Review> GetReviews()
         {
           SqlConnection conn = DB.Connection();
@@ -197,6 +198,8 @@ namespace BestRestaurants
         }
 
 
+=======
+>>>>>>> 142e26394e21f1dfbc3d013019672ec7810fe0a0
     public void Save()
     {
       SqlConnection conn = DB.Connection();

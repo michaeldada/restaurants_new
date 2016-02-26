@@ -6,6 +6,7 @@
     <link rel='stylesheet' href='Content/css/styles.css'>
   </head>
   <body>
+<<<<<<< HEAD
 
 
     <div class="jumbotron text-center">
@@ -23,6 +24,39 @@
       </form>
     </div>
     <div class="container text-center">
+=======
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <form class="navbar-form navbar-left" action="/addRestaurant" method="post">
+        <label for="restaurant-name">Restaurant Name:</label>
+        <input type="text" name="restaurant-name">
+        <label for="restaurant-cuisine">Cuisine</label>
+        <select name="restaurant-cuisine">
+          @foreach (var category in Model) {
+          <option value="@category.GetId()">@category.GetDescription()</option>
+          }
+        </select>
+        <label for="restaurant-address">Address</label>
+        <input type="text" name="restaurant-address">
+        <label for="restaurant-phone">Phone Number</label>
+        <input type="text" name="restaurant-phone">
+        <button type="submit">Add</button>
+      </form>
+
+    </div>
+    </nav>
+
+
+    <div class="jumbotron">
+      <h1>Besteraunts</h1>
+      <p>The Best Restaurants in Portland</p>
+      <form class="container" action="/search_results" method="post">
+        <input type="text" name="search">
+        <button type="submit" name="submit">Search</button>
+      </form>
+    </div>
+    <div class="container">
+>>>>>>> 142e26394e21f1dfbc3d013019672ec7810fe0a0
 
       <h2>Cuisine Categories</h2>
 
@@ -40,10 +74,44 @@
       }
 
 
+<<<<<<< HEAD
 
 
         <h2><a href="/restaurant_add">Add your favorite restaurant here!</a></h2>
 
+=======
+      <div id="forms">
+
+        <h2>Add to our database of the best restaurants!</h2>
+        <h3>Add a new Cuisine Category</h3>
+        <form method="post" action="/addCuisine">
+          Cuisine name:
+          <input type="text" name="cuisine-name">
+          <button type="submit">Add</button>
+        </form>
+
+        <h3>Add a new Restaurant</h3>
+        <form method="post" action="/addRestaurant">
+          Restaurant name:
+          <input type="text" name="restaurant-name">
+
+
+
+          Restaurant Cusine:
+          <select name="restaurant-cuisine">
+            @foreach (var category in Model) {
+            <option value="@category.GetId()">@category.GetDescription()</option>
+            }
+          </select>
+
+          Restaurant Address:
+          <input type="text" name="restaurant-address">
+          Restaurant Phone Number:
+          <input type="text" name="restaurant-phone">
+          <button type="submit">Add</button>
+        </form>
+      </div>
+>>>>>>> 142e26394e21f1dfbc3d013019672ec7810fe0a0
     </div>
   </body>
 </html>

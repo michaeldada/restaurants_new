@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
 <link rel='stylesheet' href="~/Content/css/styles.css">
 
@@ -51,3 +52,17 @@
   <a href="/">Back</a>
 </div>
 </div>
+=======
+<h1>@Model.GetDescription()</h1>
+<h3>@Model.GetPhone()</h3>
+<h3>@Model.GetAddress()</h3>
+
+<a href="/restaurant/@Model.GetId()/edit">Edit this restaurant</a>
+<br>
+<form action="/restaurant/@Model.GetId()/delete" method="post">
+<input type="hidden" name="_method" value="DELETE">
+<button type="submit">Delete this restaurant</button>
+</form>
+<br><br>
+<a href="/">Back</a>
+>>>>>>> 142e26394e21f1dfbc3d013019672ec7810fe0a0

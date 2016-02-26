@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
   <head>
@@ -42,3 +43,21 @@
 </div>
 
 </div>
+=======
+<h1>@Model.GetDescription()</h1>
+<ul>
+@{
+  if(Model!= null)
+  {
+    foreach (var restaurant in @Model.GetRestaurants())
+    {
+     <li>
+      <a href="/restaurant/@restaurant.GetId()/">@restaurant.GetDescription()</a>
+     </li>
+    }
+  }
+}
+</ul>
+
+<a href="/">Back</a>
+>>>>>>> 142e26394e21f1dfbc3d013019672ec7810fe0a0

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,3 +36,13 @@
           <h2><a href="/restaurant_add">Add your favorite restaurant here!</a></h2>
         }
     </div>
+=======
+Your Search Results:
+
+
+  @if(@Model.GetId() != 0) {
+    <a href="/restaurant/@Model.GetId()">@Model.GetDescription()</a>
+  } else {
+    <p>No Results Found! Please add your restaurant.</p>
+  }
+>>>>>>> 142e26394e21f1dfbc3d013019672ec7810fe0a0

@@ -108,6 +108,7 @@ namespace BestRestaurants
       Assert.Equal(testRestaurant, foundRestaurant);
     }
 
+<<<<<<< HEAD
     [Fact]
     public void Test_GetReviews_RetrievesAllReviewsWithRestaurant()
     {
@@ -125,5 +126,7 @@ namespace BestRestaurants
       Assert.Equal(testReviewList, resultReviewList);
     }
 
+=======
+>>>>>>> 142e26394e21f1dfbc3d013019672ec7810fe0a0
   }
 }
